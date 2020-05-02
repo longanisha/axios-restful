@@ -1,10 +1,10 @@
 <template>
   <div>
-    <button @click="a">get方法</button>
-    <button @click="b">del方法</button>
-    <button @click="c">post方法</button>
-    <button @click="d">put方法</button>
-    <button @click="e">筛选方法</button>
+    <button @click="get">get方法</button>
+    <button @click="del">del方法</button>
+    <button @click="post">post方法</button>
+    <button @click="put">put方法</button>
+    <button @click="fil">筛选方法</button>
   </div>
 </template>
 
@@ -25,26 +25,29 @@ export default {
     };
   },
   methods: {
-    a() {
+    get() {
       console.log(222);
-
-      delCatList().then(res => {
+      // 参数输入url, data
+      var data = {
+        id:1
+      };  
+      delCatList(1,data).then(res => {
         console.log(res);
       });
     },
-    b() {
+    del() {
       var data = { title: "foo", body: "bar", userId: 1 };
-      delCart(data).then(res => {
+      delCart(1,data).then(res => {
         console.log(res);
       });
     },
-    c() {
+    post() {
       var data = { title: "foo", body: "bar", userId: 1 };
       postCart(data).then(res => {
         console.log(res);
       });
     },
-    d() {
+    put() {
       var data = {
         id: 1,
         title: "foo",
@@ -55,14 +58,14 @@ export default {
         console.log(res);
       });
     },
-    e() {
+    fil() {
       var data = {
         id: 1,
         query: {
           body: 1,
           user: 2
         }
-      }
+      };
       filterCart(data).then(res => {
         console.log(res);
       });
