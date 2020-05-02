@@ -7,6 +7,10 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
+// 全局注册
+import api from './axios/index'
+Vue.use(api)
+
 
 Vue.config.productionTip = false
 

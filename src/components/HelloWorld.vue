@@ -9,14 +9,6 @@
 </template>
 
 <script>
-// import {apigetCourse} from "../apis/course"
-import {
-  delCatList,
-  postCart,
-  delCart,
-  putCart,
-  filterCart
-} from "../axios/apis";
 export default {
   name: "HelloWorld",
   data() {
@@ -29,21 +21,21 @@ export default {
       console.log(222);
       // 参数输入url, data
       var data = {
-        id:1
-      };  
-      delCatList(1,data).then(res => {
+        id: 1
+      };
+      this.$api.delCatList(1, data).then(res => {
         console.log(res);
       });
     },
     del() {
       var data = { title: "foo", body: "bar", userId: 1 };
-      delCart(1,data).then(res => {
+      this.$api.delCart(1, data).then(res => {
         console.log(res);
       });
     },
     post() {
       var data = { title: "foo", body: "bar", userId: 1 };
-      postCart(data).then(res => {
+      this.$api.postCart(data).then(res => {
         console.log(res);
       });
     },
@@ -54,7 +46,7 @@ export default {
         body: "bar",
         userId: 1
       };
-      postCart(data).then(res => {
+      this.$api.postCart(data).then(res => {
         console.log(res);
       });
     },
@@ -66,7 +58,7 @@ export default {
           user: 2
         }
       };
-      filterCart(data).then(res => {
+      this.$api.filterCart(data).then(res => {
         console.log(res);
       });
     }
